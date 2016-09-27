@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Example 03</title>
+  </head>
+  <body>
+    <my-tag></my-tag>
+    <script type="riot/tag" src="03.tag"></script>
+    <script src="riot+compiler.min.js"></script>
+    <script>
+      var ev = riot.observable()
+      riot.mixin({
+        init: function(){
+            this.ev = ev
+          }
+      })
+      riot.mount('my-tag')
+    </script>
+  </body>
+</html>
