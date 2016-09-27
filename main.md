@@ -1,4 +1,5 @@
 riot.js
+=======
 
 introduction
 
@@ -13,6 +14,7 @@ webpack
 zappajs
 
 riot.js
+-------
 
 HTML = DSL for the web
 
@@ -99,10 +101,10 @@ html = riot.render(tag,opts)
 <my-tag>
   <input
     name=bear
-    onkeyup={update_all}
+    onkeyup={update_tag}
   />
   <span>{bear.value}</span>
-  this.update_all = (function() {
+  this.update_tag = (function() {
     this.update()
   }).bind(this)
 </my-tag>
@@ -112,10 +114,10 @@ html = riot.render(tag,opts)
 <my-tag>
   <input
     name=bear
-    onkeyup={update_all}
+    onkeyup={update_tag}
   />
   <span>{bear.value}</span>
-  this.update_all = =>          {
+  this.update_tag =  =>         {
     this.update()
   }
 </my-tag>
@@ -147,7 +149,7 @@ html = riot.render(tag,opts)
 </my-tag>
 ```
 
-Script :=
+script type ⊇
 {java|coffee|es6|babel|type|live}
 
 Loops
@@ -156,7 +158,7 @@ Loops
 ```
 <ul>
   <li each={ value, index in items }>
-    { value } is { index }
+    { value } at { index }
   <li each>
 </ul>
 ```
@@ -169,14 +171,15 @@ Loops
     </li>
   </ul>
   this.items = [
-    { title: 'Mixins', done: true },
     { title: 'Loops', done: true },
-    { title: 'Nesting' }
+    { title: 'Nesting' },
+    { title: 'Mixins' }
   ]
 </todo>
 ```
 
 Nesting
+-------
 and parameters
 
 ```
@@ -185,16 +188,22 @@ and parameters
     bear="teddy"
   ></my-tag>
 </my-app>
-.
+…
 <my-tag>
   this.bear = opts.bear
 </my-tag>
 ```
 
 ```
-function(opts) {
+<my-tag>
   this.bear = opts.bear
-}
+</my-tag>
+```
+
+```
+(function(opts) {
+  this.bear = opts.bear
+}).bind(tag_context)
 ```
 
 ```
@@ -203,10 +212,11 @@ function(opts) {
     onchange={new_bear}
   ></my-tag>
 </my-app>
-.
+…
 <my-tag>
-  this.on 'some-event', =>
+  this.on 'some-event', => {
     opts.onchange()
+  }
 </my-tag>
 ```
 
@@ -221,9 +231,9 @@ function(opts) {
 ```
 <my-tag>
   this.bear = opts.bear
-  this.on('update', =>
+  this.on('update', => {
     this.bear = opts.bear
-  )
+  })
 </my-tag>
 ```
 
@@ -317,11 +327,11 @@ ev.on('save-the-bear', function(value){
 <my-spinner>
   <!-- FontAwesome spinner -->
   <i class="fa fa-spinner { fa-spin: spinning } "></i>
-  this.ev.on('save-the-bear',function(){
+  this.ev.on('save-the-bear', => {
     this.spinning = true
     this.update()
   })
-  this.ev.on('save-the-bear:done',function(){
+  this.ev.on('save-the-bear:done', => {
     this.spinning = false
     this.update()
   })
@@ -331,7 +341,7 @@ ev.on('save-the-bear', function(value){
 Webpack
 =======
 
-webpack
+webpack(-dev-server)
 tag-loader
 [ babel-loader, coffee-loader?literate ]
 
@@ -356,3 +366,7 @@ domready ->
    ]
 }
 ```
+
+❦ Merci! ❧
+==========
+❁ Questions? ❁
