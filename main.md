@@ -1,7 +1,10 @@
 riot.js
 =======
+github.com/BrestJS/2016-riot-js
 
 introduction
+
+aveu 😖
 
 {outils web} ≡ {outils serveurs}
 
@@ -242,9 +245,9 @@ Conditionals
 
 ```
 <my-app>
-  <div if={is_available}>...</div>
-  <div show={is_present}>...</div>
-  <div hide={is_unavailable}>...</div>
+  <div if={is_available}>…</div>
+  <div show={is_present}>…</div>
+  <div hide={is_unavailable}>…</div>
 </my-app>
 ```
 
@@ -367,6 +370,9 @@ domready ->
 }
 ```
 
+❁ Questions? ❁
+
 ❦ Merci! ❧
 ==========
-❁ Questions? ❁
+github.com/BrestJS/2016-riot-js
+_shimaore_
