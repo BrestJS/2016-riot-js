@@ -53,6 +53,9 @@ HTML = DSL for the web
 </my-tag>
 ```
 
+script type ⊇
+{java|coffee|es6|babel|type|live}
+
 ```
 <my-tag>
   <input
@@ -79,7 +82,7 @@ environment
 </body></html>
 ```
 
-Polymorphe, renders server-side
+polymorph, renders server-side
 
 riot = require('riot')
 tag = require('my-app.tag')
@@ -151,9 +154,6 @@ html = riot.render(tag,opts)
   }
 </my-tag>
 ```
-
-script type ⊇
-{java|coffee|es6|babel|type|live}
 
 Loops
 -----
