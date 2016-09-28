@@ -306,7 +306,7 @@ ev.on('save-the-bear', function(value){
 ```
 // var socket = io()
 ev.on('save-the-bear', function(value){
-  socket.emit('save-the-bear', value, function(value){
+  socket.emit('save-the-bear', value, function(){
     ev.trigger('save-the-bear:done',value)
   })
 })
