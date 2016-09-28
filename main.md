@@ -298,7 +298,7 @@ ev.on('save-the-bear', function(value){
     .post('/save-the-bear')
     .send(value)
     .end(function(){
-      ev.trigger('save-the-bear:done')
+      ev.trigger('save-the-bear:done',value)
     })
 })
 ```
@@ -307,7 +307,7 @@ ev.on('save-the-bear', function(value){
 // var socket = io()
 ev.on('save-the-bear', function(value){
   socket.emit('save-the-bear', value, function(value){
-    ev.trigger('save-the-bear:done')
+    ev.trigger('save-the-bear:done',value)
   })
 })
 ```
@@ -321,7 +321,7 @@ ev.on('save-the-bear', function(value){
     doc.bear = value
     db.put(doc)
   }).then( function(){
-    ev.trigger('save-the-bear:done')
+    ev.trigger('save-the-bear:done',value)
   })
 })
 ```
